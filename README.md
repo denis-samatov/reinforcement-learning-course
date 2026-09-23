@@ -3,14 +3,14 @@
 [![CI](https://github.com/denis-samatov/reinforcement-learning-course/actions/workflows/ci.yml/badge.svg)](https://github.com/denis-samatov/reinforcement-learning-course/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A practical, code-first reinforcement learning course for anyone who wants to build and
-run RL algorithms themselves rather than only read about them — from tabular Q-learning
-through policy gradients to RLHF (PPO, DPO), with runnable sessions in Python, Gymnasium,
-and PyTorch. Licensed under [MIT](LICENSE).
+A reinforcement learning course with 17 theory notes and code for selected sessions,
+from Monte Carlo and Q-learning to policy gradients and a small RLHF exercise. The
+`code/16_dpo/` and `code/17_final_project/` directories currently contain plans rather
+than runnable implementations. Licensed under [MIT](LICENSE).
 
 > **Goal:** Understand and implement the core reinforcement learning (RL) algorithms —
 > from MDPs and the Bellman equations through RLHF (PPO, DPO).
-> **Format:** 10 one-hour sessions, with code in Python, Gymnasium, and PyTorch.
+> **Planned format:** 10 one-hour coding sessions. Eight directories currently contain Python scripts; the final two are outlines.
 
 ---
 
@@ -53,7 +53,9 @@ venv\Scripts\activate
 
 ### 3. Install dependencies
 
-All required libraries are listed in `requirements.txt`.
+`requirements.txt` installs the base environment. Several advanced sessions need
+additional packages such as PyTorch or Box2D; check the session README and imports
+before running one. The full course has not been validated in one environment.
 
 ```bash
 pip install -r requirements.txt
@@ -63,7 +65,7 @@ pip install -r requirements.txt
 
 - **`code/`**: hands-on code for each session, grouped by topic. Each subfolder
   contains Python scripts (`.py`) and/or interactive notebooks (`.ipynb`).
-- **`notes/`**: theory notes and slides for each session.
+- **`notes/md/`**: the 17 theory notes; [`notes/README.md`](notes/README.md) maps them to coding sessions.
 - **`.gitignore`**: tells Git which files/folders to ignore.
 - **`README.md`**: this file — the main course overview.
 - **`requirements.txt`**: Python dependencies for the project.
@@ -119,20 +121,15 @@ jupyter lab
 
 ## 🗂️ Session structure
 
-Every coding session under `code/` follows the same template:
-
-- `code/NN_topic/`
-  - `README.md` — goals, how to run the algorithm/notebook, links to the matching theory note.
-  - `*_algorithm.py` (or similarly named) — the core algorithm implementation.
-  - `*_demo.ipynb` — a runnable demo notebook.
-  - `homework.ipynb` — exercises for the session (with `TODO` placeholders).
-  - `homework_solution.ipynb` — worked solutions.
+Session folders vary. Inspect the files in each folder before following its README;
+some advanced-session commands are exercise plans for scripts that are not yet present.
+In particular, `code/16_dpo/` and `code/17_final_project/` have no Python scripts.
 
 Coding sessions are numbered 08-17 (see [`notes/README.md`](notes/README.md) for how each note maps to its coding session — notes 01-07 are theory-only, with no matching code directory).
 
 ---
 
-## 🎯 Learning outcomes
+## 🎯 Planned learning outcomes
 
 | Session | Outcome |
 |----------|------------|
@@ -178,8 +175,7 @@ Coding sessions are numbered 08-17 (see [`notes/README.md`](notes/README.md) for
 > 📂 This repository includes:
 > — study notes (formulas, visualizations)
 > — hands-on notebooks with code
-> — demos and video recordings, mini-MDP examples
-> — shared modules (algorithms, policies, utilities)
-> — RL and RLHF mini-projects
+> — demos and mini-MDP examples
+> — selected RL and RLHF exercises
 >
 > 🧭 Goal: bridge **academic RL** and **applied Deep RL / RLHF**.
