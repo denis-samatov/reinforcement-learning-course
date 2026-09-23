@@ -15,20 +15,20 @@ There are 17 notes but only 10 coding sessions (`code/08_mc_vs_td` through `code
 | note_05 | Deep RL function approximators | *(theory only)* |
 | note_06 | Value-based methods | *(theory only)* |
 | note_07 | Bellman equation | *(theory only)* |
-| note_08 | Monte Carlo vs TD | [`code/08_mc_vs_td/`](../../code/08_mc_vs_td/) |
-| note_09 | Q-Learning | [`code/09_q_learning_bellman/`](../../code/09_q_learning_bellman/) |
-| note_10 | Deep Q-Network | [`code/10_deep_q_network/`](../../code/10_deep_q_network/) |
-| note_11 | Policy Gradients / REINFORCE | [`code/11_policy_gradient/`](../../code/11_policy_gradient/) |
-| note_12 | Actor-Critic / A2C | [`code/12_actor_critic/`](../../code/12_actor_critic/) |
-| note_13 | Dynamic Programming | [`code/13_dynamic_programming/`](../../code/13_dynamic_programming/) |
-| note_14 | PPO / TRPO | [`code/14_ppo_trpo/`](../../code/14_ppo_trpo/) |
-| note_15 | RLHF pipeline | [`code/15_rlhf_basics/`](../../code/15_rlhf_basics/) |
-| note_16 | DPO and variants | [`code/16_dpo/`](../../code/16_dpo/) |
-| note_17 | Final project | [`code/17_final_project/`](../../code/17_final_project/) |
+| note_08 | Monte Carlo vs TD | [`code/08_mc_vs_td/`](../code/08_mc_vs_td/) |
+| note_09 | Q-Learning | [`code/09_q_learning_bellman/`](../code/09_q_learning_bellman/) |
+| note_10 | Deep Q-Network | [`code/10_deep_q_network/`](../code/10_deep_q_network/) |
+| note_11 | Policy Gradients / REINFORCE | [`code/11_policy_gradient/`](../code/11_policy_gradient/) |
+| note_12 | Actor-Critic / A2C | [`code/12_actor_critic/`](../code/12_actor_critic/) |
+| note_13 | Dynamic Programming | [`code/13_dynamic_programming/`](../code/13_dynamic_programming/) |
+| note_14 | PPO / TRPO | [`code/14_ppo_trpo/`](../code/14_ppo_trpo/) |
+| note_15 | RLHF pipeline | [`code/15_rlhf_basics/`](../code/15_rlhf_basics/) |
+| note_16 | DPO and variants | [`code/16_dpo/`](../code/16_dpo/) |
+| note_17 | Final project | [`code/17_final_project/`](../code/17_final_project/) |
 
 ## Course structure
 
-### 📘 [note_01_introduction_to_deep_rl.md](note_01_introduction_to_deep_rl.md) — Introduction to Deep Reinforcement Learning
+### 📘 [note_01_introduction_to_deep_rl.md](md/note_01_introduction_to_deep_rl.md) — Introduction to Deep Reinforcement Learning
 
 **Main topics:**
 
@@ -43,7 +43,7 @@ There are 17 notes but only 10 coding sessions (`code/08_mc_vs_td` through `code
 
 ---
 
-### 📗 [note_02_rl_framework_and_mdp.md](note_02_rl_framework_and_mdp.md) — The Reinforcement Learning Framework
+### 📗 [note_02_rl_framework_and_mdp.md](md/note_02_rl_framework_and_mdp.md) — The Reinforcement Learning Framework
 
 **Main topics:**
 
@@ -60,7 +60,7 @@ There are 17 notes but only 10 coding sessions (`code/08_mc_vs_td` through `code
 
 ---
 
-### 📙 [note_03_exploration_vs_exploitation.md](note_03_exploration_vs_exploitation.md) — Exploration vs Exploitation
+### 📙 [note_03_exploration_vs_exploitation.md](md/note_03_exploration_vs_exploitation.md) — Exploration vs Exploitation
 
 **Main topics:**
 
@@ -76,7 +76,7 @@ There are 17 notes but only 10 coding sessions (`code/08_mc_vs_td` through `code
 
 ---
 
-### 📕 [note_04_policy_vs_value_methods.md](note_04_policy_vs_value_methods.md) — Policy-Based vs Value-Based Methods
+### 📕 [note_04_policy_vs_value_methods.md](md/note_04_policy_vs_value_methods.md) — Policy-Based vs Value-Based Methods
 
 **Main topics:**
 
@@ -94,7 +94,7 @@ There are 17 notes but only 10 coding sessions (`code/08_mc_vs_td` through `code
 
 ---
 
-### 📕 [note_05_deep_rl_approximators.md](note_05_deep_rl_approximators.md) — What "Deep" Means in Deep RL
+### 📕 [note_05_deep_rl_approximators.md](md/note_05_deep_rl_approximators.md) — What "Deep" Means in Deep RL
 
 **Main topics:**
 
@@ -110,7 +110,7 @@ There are 17 notes but only 10 coding sessions (`code/08_mc_vs_td` through `code
 
 ---
 
-### 📙 [note_06_value_based_methods.md](note_06_value_based_methods.md) — Two Kinds of Value-Based Methods
+### 📙 [note_06_value_based_methods.md](md/note_06_value_based_methods.md) — Two Kinds of Value-Based Methods
 
 **Main topics:**
 
@@ -126,7 +126,7 @@ There are 17 notes but only 10 coding sessions (`code/08_mc_vs_td` through `code
 
 ---
 
-### 📘 [note_07_bellman_equation.md](note_07_bellman_equation.md) — The Bellman Equation
+### 📘 [note_07_bellman_equation.md](md/note_07_bellman_equation.md) — The Bellman Equation
 
 **Main topics:**
 
@@ -142,7 +142,7 @@ There are 17 notes but only 10 coding sessions (`code/08_mc_vs_td` through `code
 
 ---
 
-### 📗 [note_08_monte_carlo_vs_td.md](note_08_monte_carlo_vs_td.md) — Monte Carlo vs Temporal Difference
+### 📗 [note_08_monte_carlo_vs_td.md](md/note_08_monte_carlo_vs_td.md) — Monte Carlo vs Temporal Difference
 
 **Main topics:**
 
@@ -158,7 +158,7 @@ There are 17 notes but only 10 coding sessions (`code/08_mc_vs_td` through `code
 
 ---
 
-### 📘 [note_09_q_learning.md](note_09_q_learning.md) — Q-Learning: the Foundational Action-Learning Algorithm
+### 📘 [note_09_q_learning.md](md/note_09_q_learning.md) — Q-Learning: the Foundational Action-Learning Algorithm
 
 **Main topics:**
 
@@ -175,7 +175,7 @@ There are 17 notes but only 10 coding sessions (`code/08_mc_vs_td` through `code
 
 ---
 
-### 📘 [note_10_deep_q_network.md](note_10_deep_q_network.md) — Deep Q-Network (DQN)
+### 📘 [note_10_deep_q_network.md](md/note_10_deep_q_network.md) — Deep Q-Network (DQN)
 
 **Main topics:**
 
@@ -184,13 +184,13 @@ There are 17 notes but only 10 coding sessions (`code/08_mc_vs_td` through `code
 * Experience Replay
 * The Target Network
 * The TD-target and loss
-* Companion coding session: [`code/10_deep_q_network/`](../../code/10_deep_q_network/)
+* Companion coding session: [`code/10_deep_q_network/`](../code/10_deep_q_network/)
 
 **Level:** Advanced, hands-on
 
 ---
 
-### 📗 [note_11_policy_gradients_reinforce.md](note_11_policy_gradients_reinforce.md) — Policy Gradients and REINFORCE
+### 📗 [note_11_policy_gradients_reinforce.md](md/note_11_policy_gradients_reinforce.md) — Policy Gradients and REINFORCE
 
 **Main topics:**
 
@@ -198,13 +198,13 @@ There are 17 notes but only 10 coding sessions (`code/08_mc_vs_td` through `code
 * The REINFORCE algorithm (Monte Carlo Policy Gradient)
 * Using a baseline to reduce variance
 * Entropy regularization
-* Companion coding session: [`code/11_policy_gradient/`](../../code/11_policy_gradient/)
+* Companion coding session: [`code/11_policy_gradient/`](../code/11_policy_gradient/)
 
 **Level:** Advanced, hands-on
 
 ---
 
-### 📙 [note_12_actor_critic_a2c.md](note_12_actor_critic_a2c.md) — Actor-Critic Methods and A2C
+### 📙 [note_12_actor_critic_a2c.md](md/note_12_actor_critic_a2c.md) — Actor-Critic Methods and A2C
 
 **Main topics:**
 
@@ -212,39 +212,39 @@ There are 17 notes but only 10 coding sessions (`code/08_mc_vs_td` through `code
 * Advantage Actor-Critic (A2C)
 * The TD-error as an advantage estimate
 * Continuous action spaces (Gaussian policies)
-* Companion coding session: [`code/12_actor_critic/`](../../code/12_actor_critic/)
+* Companion coding session: [`code/12_actor_critic/`](../code/12_actor_critic/)
 
 **Level:** Advanced, hands-on
 
 ---
 
-### 📕 [note_13_dynamic_programming.md](note_13_dynamic_programming.md) — Dynamic Programming in Reinforcement Learning
+### 📕 [note_13_dynamic_programming.md](md/note_13_dynamic_programming.md) — Dynamic Programming in Reinforcement Learning
 
 **Main topics:**
 
 * Policy Evaluation, Policy Iteration, Value Iteration
 * Generalized Policy Iteration (GPI)
 * Requires a known environment model
-* Companion coding session: [`code/13_dynamic_programming/`](../../code/13_dynamic_programming/)
+* Companion coding session: [`code/13_dynamic_programming/`](../code/13_dynamic_programming/)
 
 **Level:** Advanced, mathematical
 
 ---
 
-### 📘 [note_14_ppo_trpo.md](note_14_ppo_trpo.md) — Proximal Policy Optimization (PPO) and Trust Region Policy Optimization (TRPO)
+### 📘 [note_14_ppo_trpo.md](md/note_14_ppo_trpo.md) — Proximal Policy Optimization (PPO) and Trust Region Policy Optimization (TRPO)
 
 **Main topics:**
 
 * The PPO-Clip objective
 * Generalized Advantage Estimation (GAE)
 * TRPO's trust-region approach
-* Companion coding session: [`code/14_ppo_trpo/`](../../code/14_ppo_trpo/)
+* Companion coding session: [`code/14_ppo_trpo/`](../code/14_ppo_trpo/)
 
 **Level:** Advanced, hands-on
 
 ---
 
-### 📗 [note_15_rlhf_pipeline.md](note_15_rlhf_pipeline.md) — RLHF: Reinforcement Learning from Human Feedback
+### 📗 [note_15_rlhf_pipeline.md](md/note_15_rlhf_pipeline.md) — RLHF: Reinforcement Learning from Human Feedback
 
 **Main topics:**
 
@@ -252,26 +252,26 @@ There are 17 notes but only 10 coding sessions (`code/08_mc_vs_td` through `code
 * The Bradley-Terry preference model
 * The KL penalty against the reference policy
 * Reward hacking
-* Companion coding session: [`code/15_rlhf_basics/`](../../code/15_rlhf_basics/)
+* Companion coding session: [`code/15_rlhf_basics/`](../code/15_rlhf_basics/)
 
 **Level:** Advanced, applied
 
 ---
 
-### 📙 [note_16_dpo_and_variants.md](note_16_dpo_and_variants.md) — DPO: Direct Preference Optimization
+### 📙 [note_16_dpo_and_variants.md](md/note_16_dpo_and_variants.md) — DPO: Direct Preference Optimization
 
 **Main topics:**
 
 * Optimizing directly on preferences, without a separate Reward Model
 * The DPO loss
 * Comparison with PPO-RLHF
-* Companion coding session: [`code/16_dpo/`](../../code/16_dpo/)
+* Companion coding session: [`code/16_dpo/`](../code/16_dpo/)
 
 **Level:** Advanced, applied
 
 ---
 
-### 📕 [note_17_final_project.md](note_17_final_project.md) — Final Project: Course Wrap-Up and Directions Forward
+### 📕 [note_17_final_project.md](md/note_17_final_project.md) — Final Project: Course Wrap-Up and Directions Forward
 
 **Main topics:**
 
