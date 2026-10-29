@@ -1,5 +1,5 @@
 """
-Deep Q-Network (DQN) for LunarLander-v2.
+Deep Q-Network (DQN) for LunarLander-v3.
 
 A classic DQN implementation with:
 - an Experience Replay Buffer
@@ -110,6 +110,10 @@ class DQNAgent:
     def __init__(self, env: gym.Env, config: DQNConfig):
         self.env = env
         self.config = config
+        random.seed(config.seed)
+        np.random.seed(config.seed)
+        torch.manual_seed(config.seed)
+        env.action_space.seed(config.seed)
 
         # Networks
         obs_dim = env.observation_space.shape[0]
@@ -117,7 +121,7 @@ class DQNAgent:
 
         # Check that the action space is discrete
         if not isinstance(env.action_space, gym.spaces.Discrete):
-            raise ValueError("LunarLander-v2 has a discrete action space. This script expects gym.spaces.Discrete.")
+            raise ValueError("LunarLander-v3 has a discrete action space. This script expects gym.spaces.Discrete.")
 
         self.policy_net = DQN(obs_dim, action_dim, config.hidden_dims).to(config.device)
         self.target_net = DQN(obs_dim, action_dim, config.hidden_dims).to(config.device)
@@ -376,7 +380,7 @@ def plot_training_curves(
 
 
 def main():
-    parser = argparse.ArgumentParser(description="DQN on LunarLander-v2")
+    parser = argparse.ArgumentParser(description="DQN on LunarLander-v3")
     parser.add_argument("--total-steps", type=int, default=50000, help="Total training steps")
     parser.add_argument("--lr", type=float, default=1e-3, help="Learning rate")
     parser.add_argument("--gamma", type=float, default=0.99, help="Discount factor")
@@ -398,7 +402,7 @@ def main():
     random.seed(args.seed)
 
     # Create the environment
-    env = gym.make("LunarLander-v2")
+    env = gym.make("LunarLander-v3")
 
     # Configuration
     config = DQNConfig(
@@ -416,14 +420,14 @@ def main():
     )
 
     print("=" * 60)
-    print("DQN Training on LunarLander-v2")
+    print("DQN Training on LunarLander-v3")
     print("=" * 60)
     print(f"Total steps: {config.total_steps}")
     print(f"Learning rate: {config.learning_rate}")
     print(f"Buffer size: {config.buffer_size}")
     print(f"Batch size: {config.batch_size}")
     print(f"Target update: {config.target_update}")
-    print("Environment: LunarLander-v2")
+    print("Environment: LunarLander-v3")
     print("=" * 60)
 
     # Create the agent

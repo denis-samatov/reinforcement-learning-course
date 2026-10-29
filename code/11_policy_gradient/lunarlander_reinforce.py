@@ -1,7 +1,7 @@
-"""LunarLander-v2 REINFORCE (Policy Gradient) implementation.
+"""LunarLander-v3 REINFORCE (Policy Gradient) implementation.
 
 This script implements the REINFORCE algorithm (Monte Carlo Policy Gradient) for
-the LunarLander-v2 environment. It demonstrates policy-based methods that directly
+the LunarLander-v3 environment. It demonstrates policy-based methods that directly
 learn a stochastic policy through gradient ascent on expected returns.
 
 Key features:
@@ -33,10 +33,10 @@ warnings.filterwarnings("ignore", category=UserWarning, module="gymnasium")
 
 @dataclass
 class REINFORCEConfig:
-    """Configuration for training REINFORCE on LunarLander-v2.
+    """Configuration for training REINFORCE on LunarLander-v3.
 
     Notes:
-        - LunarLander-v2 has an 8-dimensional continuous state
+        - LunarLander-v3 has an 8-dimensional continuous state
           space and 4 discrete actions.
         - Typical episode length: 200-400 steps.
         - Considered solved when the average reward > 200 over 100
@@ -121,7 +121,7 @@ class REINFORCEAgent:
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
         # Environment setup
-        self.env = gym.make("LunarLander-v2", render_mode=config.render_mode)
+        self.env = gym.make("LunarLander-v3", render_mode=config.render_mode)
         self.env.action_space.seed(config.seed)
         self.env.observation_space.seed(config.seed)
 
@@ -290,7 +290,7 @@ class REINFORCEAgent:
         Returns:
             A tuple of (mean reward, reward standard deviation).
         """
-        eval_env = gym.make("LunarLander-v2", render_mode="human" if render else None)
+        eval_env = gym.make("LunarLander-v3", render_mode="human" if render else None)
         rewards = []
 
         for episode in range(num_episodes):
@@ -343,7 +343,7 @@ def plot_training_curves(rewards: np.ndarray, lengths: np.ndarray, window: int =
     ax1.axhline(y=200, color='r', linestyle='--', label='Solved threshold')
     ax1.set_xlabel('Episode')
     ax1.set_ylabel('Total Reward')
-    ax1.set_title('REINFORCE on LunarLander-v2: Training Rewards')
+    ax1.set_title('REINFORCE on LunarLander-v3: Training Rewards')
     ax1.legend()
     ax1.grid(alpha=0.3)
 
@@ -354,7 +354,7 @@ def plot_training_curves(rewards: np.ndarray, lengths: np.ndarray, window: int =
         ax2.plot(range(window-1, len(lengths)), rolling_mean, label=f'{window}-episode average', linewidth=2)
     ax2.set_xlabel('Episode')
     ax2.set_ylabel('Episode Length')
-    ax2.set_title('REINFORCE on LunarLander-v2: Episode Lengths')
+    ax2.set_title('REINFORCE on LunarLander-v3: Episode Lengths')
     ax2.legend()
     ax2.grid(alpha=0.3)
 
@@ -369,7 +369,7 @@ def record_video(agent: REINFORCEAgent, num_episodes: int = 5):
     video_path.mkdir(parents=True, exist_ok=True)
 
     # Wrapper to record video
-    env = gym.make("LunarLander-v2", render_mode="rgb_array")
+    env = gym.make("LunarLander-v3", render_mode="rgb_array")
     env = RecordVideo(
         env,
         video_path,
@@ -408,7 +408,7 @@ def main(args):
     )
 
     print("=" * 60)
-    print("REINFORCE on LunarLander-v2")
+    print("REINFORCE on LunarLander-v3")
     print("=" * 60)
     print(f"Episodes: {config.num_episodes}")
     print(f"Learning rate: {config.learning_rate_policy}")
@@ -446,7 +446,7 @@ def main(args):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="REINFORCE on LunarLander-v2")
+    parser = argparse.ArgumentParser(description="REINFORCE on LunarLander-v3")
     parser.add_argument("--episodes", type=int, default=2000, help="Number of training episodes")
     parser.add_argument("--lr", type=float, default=3e-4, help="Learning rate")
     parser.add_argument("--no-baseline", action="store_false", dest="baseline",

@@ -151,7 +151,10 @@ class A2CAgent:
     
     def __init__(self, config: A2CConfig):
         self.config = config
-        
+        # Seed before constructing the network, not after drawing initial weights.
+        torch.manual_seed(config.seed)
+        np.random.seed(config.seed)
+
         # Environment setup
         self.env = gym.make("Pendulum-v1", render_mode=config.render_mode)
         self.env.action_space.seed(config.seed)
@@ -181,10 +184,6 @@ class A2CAgent:
         
         self.actor_optimizer = optim.Adam(actor_params, lr=config.learning_rate_actor)
         self.critic_optimizer = optim.Adam(critic_params, lr=config.learning_rate_critic)
-        
-        # Random seed
-        torch.manual_seed(config.seed)
-        np.random.seed(config.seed)
         
     def select_action(self, state: np.ndarray, deterministic: bool = False) -> Tuple[np.ndarray, torch.Tensor, torch.Tensor]:
         """Chooses an action using the current policy.

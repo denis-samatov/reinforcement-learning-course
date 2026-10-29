@@ -50,3 +50,18 @@ jobs:
       - name: Run the RLHF toy pipeline end to end
         working-directory: code/15_rlhf_basics
         run: python train_pipeline.py
+
+  algorithm-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install CPU algorithm test dependencies
+        run: pip install -r requirements-torch.txt pytest
+      - name: Verify seeded initialization, TD targets, and DP objective
+        env:
+          MPLBACKEND: Agg
+          OMP_NUM_THREADS: "1"
+        run: python -m pytest tests -q
