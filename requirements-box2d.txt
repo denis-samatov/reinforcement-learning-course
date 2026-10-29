@@ -1,0 +1,2 @@
+-r requirements-torch.txt
+gymnasium[box2d]>=1.0,<2

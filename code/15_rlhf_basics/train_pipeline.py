@@ -1,4 +1,4 @@
-"""Run full toy RLHF pipeline: data gen -> SFT -> RM -> PPO.
+"""Run full toy RLHF pipeline: data gen -> SFT -> RM -> tabular policy gradient.
 
 The code is intentionally tiny to make it easy to live-code edits during
 the seminar. All checkpoints land in `data/`.
@@ -29,7 +29,7 @@ def main() -> None:
     rm_ckpt = data_dir / "reward_model.npy"
     train_reward_model(pref_path=data_dir / "preferences.json", ckpt_path=rm_ckpt)
 
-    # 4) PPO with default beta
+    # 4) Simplified tabular policy gradient with shaped reward
     run_ppo(beta=0.01, output_dir=data_dir)
 
 

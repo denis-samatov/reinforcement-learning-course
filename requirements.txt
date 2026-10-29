@@ -1,12 +1,8 @@
-gym==0.26.2; python_version < "3.13"
-numpy<2.0; python_version < "3.13"
-
-# For Python 3.13+ we use Gymnasium (compatible with NumPy >=2.5.2)
-gymnasium[classic-control]>=1.3.0; python_version >= "3.13"
-numpy>=2.5.3; python_version >= "3.13"
-
-matplotlib>=3.7; python_version < "3.11"
-matplotlib>=3.11.2; python_version >= "3.11"
+# Base: tabular sessions 08/09/13/15. Python 3.10+.
+gymnasium[classic-control]>=1.0,<2
+numpy>=1.26,<3
+matplotlib>=3.8,<4
 imageio>=2.37.4
 imageio-ffmpeg>=0.6.0
-tqdm>=4.70.1
+tqdm>=4.66
+Pillow>=11

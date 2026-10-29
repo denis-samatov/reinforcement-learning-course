@@ -97,7 +97,7 @@ P(y_w > y_l | x) = σ(r(x, y_w) - r(x, y_l))
 loss = -log σ(r(x, y_w) - r(x, y_l))
 ```
 
-### 2. PPO with a KL penalty
+### 2. Toy reward shaping with a KL value
 
 ```python
 total_reward = rm_reward - β * KL(π_θ || π_SFT)
@@ -115,3 +115,16 @@ total_reward = rm_reward - β * KL(π_θ || π_SFT)
 **Author:** Denis Samatov, TPU / 2025
 
 ✅ **Session 15 complete!** Moving on to [Session 16: DPO](../16_dpo/README.md)
+
+
+### Algorithm boundary
+
+`ppo_rlhf.py` implements a tiny categorical policy-gradient teaching exercise over
+four fixed prompts and three fixed responses. It has no PPO-Clip ratio objective,
+old-policy epochs, value network or learned language model. `ppo_train` is a legacy
+function name. The reward subtracts the exact per-prompt KL value before centering
+advantages, but this simplified update does not differentiate the KL itself; it is
+not an exact optimizer for the displayed KL-regularized objective. Use it to inspect
+sampling/advantages, not to claim a correct PPO or KL-controlled LLM implementation.
+Compare genuine methods only after recording independent seeds, evaluation episodes,
+environment versions and budgets; none of those experiments is supplied by the smoke test.

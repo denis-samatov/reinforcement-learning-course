@@ -1,6 +1,8 @@
-"""RLHF-style fine-tuning with a tiny PPO/REINFORCE hybrid.
+"""RLHF-style illustration with a tabular REINFORCE update (not PPO).
 
 We intentionally keep the update rule simple so it can be derived live:
+The historical ppo_train name is retained for compatibility. There is no PPO
+likelihood-ratio clipping or old-policy minibatch objective here.
 total_reward = reward_model - beta * KL_to_SFT
 loss ≈ -E[advantage * log π(a|s)]
 """

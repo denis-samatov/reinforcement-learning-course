@@ -179,3 +179,33 @@ Coding sessions are numbered 08-17 (see [`notes/README.md`](notes/README.md) for
 > — selected RL and RLHF exercises
 >
 > 🧭 Goal: bridge **academic RL** and **applied Deep RL / RLHF**.
+
+
+## Reproducible session environments and acceptance
+
+Base tabular/DP/toy sessions: `pip install -r requirements.txt`. PyTorch sessions
+10/12/14 additionally use `pip install -r requirements-torch.txt`. LunarLander and
+BipedalWalker sessions 10/11/14 require `pip install -r requirements-box2d.txt` and
+the Box2D build prerequisites for your platform. Gymnasium is used on all supported
+Python versions; legacy Gym is not an alternative import for these scripts.
+LunarLander examples use Gymnasium's maintained `LunarLander-v3` registration.
+
+Offline mathematical/initialization checks: `MPLBACKEND=Agg python -m pytest tests -q`.
+These check identical initial weights for equal DQN/A2C seeds, a hand-computed terminal
+TD target and a known tiny-MDP Bellman fixed point. They are not learning-curve studies.
+Session 15 is a fixed-response **tabular policy-gradient toy**, not LLM training or PPO-Clip;
+its historical `ppo_train` function name is kept for existing notebook callers.
+The formula and omissions are documented in `code/15_rlhf_basics/README.md`.
+
+Sessions 16/17 remain exercises. Runnable DPO/final-project scripts are not promised.
+Their acceptance requires a chosen model/data environment, held-out evaluation, logged
+seeds/budgets and a separately approved training run. Do not substitute toy success for it.
+
+### Locked offline contract profile
+
+For the Python 3.13 software checks, install `requirements-execution.txt` in a fresh venv
+with `pip install --require-hashes -r requirements-execution.txt`, then run `python -m pytest tests -q`.
+Regenerate with `uv pip compile requirements-execution.in --python-version 3.13 --generate-hashes --output-file requirements-execution.txt`.
+This profile covers CartPole/Pendulum and tiny tabular mathematical checks. Box2D remains a
+separate optional profile; no whole-course learning-curve reproduction or environment-wide
+platform qualification follows from these short tests.
