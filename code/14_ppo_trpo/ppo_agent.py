@@ -9,7 +9,7 @@ Features:
 - Vectorized environments for parallel data collection
 """
 
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from typing import Tuple, Optional, Dict
 import numpy as np
 import torch
@@ -300,6 +300,8 @@ class PPOAgent:
 
     def __init__(self, config: PPOConfig):
         self.config = config
+        torch.manual_seed(config.seed)
+        np.random.seed(config.seed)
 
         # Create the vectorized environment
         self.envs = gym.vector.SyncVectorEnv(
@@ -529,13 +531,13 @@ class PPOAgent:
         torch.save({
             "network": self.network.state_dict(),
             "optimizer": self.optimizer.state_dict(),
-            "config": self.config,
+            "config": asdict(self.config),
         }, path)
         print(f"Model saved to {path}")
 
     def load(self, path: str):
         """Loads the model."""
-        checkpoint = torch.load(path, map_location=self.config.device)
+        checkpoint = torch.load(path, map_location=self.config.device, weights_only=True)
         self.network.load_state_dict(checkpoint["network"])
         self.optimizer.load_state_dict(checkpoint["optimizer"])
         print(f"Model loaded from {path}")

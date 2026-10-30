@@ -17,7 +17,7 @@ jobs:
       - name: Install ruff
         run: pip install ruff
       - name: Lint algorithm/utility scripts under code/
-        run: ruff check --select E4,E7,E9,F --exclude '*.ipynb' code/
+        run: ruff check --select E4,E7,E9,F --exclude '*.ipynb' code/ tests/
 
   notebooks-valid:
     runs-on: ubuntu-latest
