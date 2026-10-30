@@ -14,7 +14,7 @@ Key features:
 
 import argparse
 import warnings
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import List, Tuple
 
@@ -118,6 +118,8 @@ class REINFORCEAgent:
 
     def __init__(self, config: REINFORCEConfig):
         self.config = config
+        torch.manual_seed(config.seed)
+        np.random.seed(config.seed)
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
         # Environment setup
@@ -137,9 +139,6 @@ class REINFORCEAgent:
         if self.value:
             self.value_optimizer = optim.Adam(self.value.parameters(), lr=config.learning_rate_value)
 
-        # Random seed
-        torch.manual_seed(config.seed)
-        np.random.seed(config.seed)
 
     def select_action(self, state: np.ndarray) -> Tuple[int, torch.Tensor, torch.Tensor]:
         """Chooses an action using the current policy.
@@ -318,13 +317,13 @@ class REINFORCEAgent:
         torch.save({
             'policy_state_dict': self.policy.state_dict(),
             'value_state_dict': self.value.state_dict() if self.value else None,
-            'config': self.config
+            'config': asdict(self.config)
         }, path)
         print(f"Model saved to {path}")
 
     def load(self, path: str):
         """Loads the policy and value networks."""
-        checkpoint = torch.load(path)
+        checkpoint = torch.load(path, map_location=self.device, weights_only=True)
         self.policy.load_state_dict(checkpoint['policy_state_dict'])
         if self.value and checkpoint['value_state_dict']:
             self.value.load_state_dict(checkpoint['value_state_dict'])

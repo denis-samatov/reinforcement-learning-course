@@ -1,2 +1,3 @@
+# Current Torch profile requires Python 3.11+; base tabular lessons remain separate.
 -r requirements.txt
-torch>=2.6
+torch>=2.13

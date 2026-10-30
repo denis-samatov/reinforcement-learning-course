@@ -15,7 +15,7 @@ Key features:
 
 import argparse
 import warnings
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Tuple
 
@@ -389,13 +389,13 @@ class A2CAgent:
             'model_state_dict': self.model.state_dict(),
             'actor_optimizer_state_dict': self.actor_optimizer.state_dict(),
             'critic_optimizer_state_dict': self.critic_optimizer.state_dict(),
-            'config': self.config
+            'config': asdict(self.config)
         }, path)
         print(f"Model saved to {path}")
     
     def load(self, path: str):
         """Loads the model."""
-        checkpoint = torch.load(path)
+        checkpoint = torch.load(path, map_location=next(self.model.parameters()).device, weights_only=True)
         self.model.load_state_dict(checkpoint['model_state_dict'])
         self.actor_optimizer.load_state_dict(checkpoint['actor_optimizer_state_dict'])
         self.critic_optimizer.load_state_dict(checkpoint['critic_optimizer_state_dict'])

@@ -209,3 +209,18 @@ Regenerate with `uv pip compile requirements-execution.in --python-version 3.13 
 This profile covers CartPole/Pendulum and tiny tabular mathematical checks. Box2D remains a
 separate optional profile; no whole-course learning-curve reproduction or environment-wide
 platform qualification follows from these short tests.
+
+### Safe checkpoint contract
+
+DQN, REINFORCE, A2C and PPO now save configuration metadata as primitive dictionaries beside
+state dictionaries. Loading explicitly uses `weights_only=True` and the agent's target device;
+construct the matching architecture before loading. Optimizer state is preserved only in the
+lessons that already saved it; these are parameter checkpoints, not full RNG/environment or
+mid-episode training-resume snapshots. Historical checkpoints containing pickled Config objects
+are rejected by current safe loading. Do not disable safe loading for an unknown checkpoint;
+recreate a new checkpoint from trusted source/training in a separately controlled environment.
+The offline tests verify new-format state restoration on tiny CPU networks; they do not establish
+LunarLander/Pendulum learning performance. REINFORCE and PPO seed network initialization too.
+
+The maintained optional Torch profile requires Python 3.11+ and Torch >=2.13; the locked
+qualification environment uses Python 3.13/Torch2.15. The base tabular profile remains separate.

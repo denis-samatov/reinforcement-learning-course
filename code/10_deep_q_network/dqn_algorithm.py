@@ -11,7 +11,7 @@ A classic DQN implementation with:
 import argparse
 import random
 from collections import deque, namedtuple
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from typing import List, Tuple
 
 import gymnasium as gym
@@ -303,13 +303,13 @@ class DQNAgent:
         torch.save({
             'policy_net': self.policy_net.state_dict(),
             'target_net': self.target_net.state_dict(),
-            'config': self.config,
+            'config': asdict(self.config),
         }, path)
         print(f"Model saved to {path}")
 
     def load(self, path: str):
         """Loads a model."""
-        checkpoint = torch.load(path, map_location=self.config.device)
+        checkpoint = torch.load(path, map_location=self.config.device, weights_only=True)
         self.policy_net.load_state_dict(checkpoint['policy_net'])
         self.target_net.load_state_dict(checkpoint['target_net'])
         print(f"Model loaded from {path}")
